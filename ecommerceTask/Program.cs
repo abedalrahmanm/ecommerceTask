@@ -9,6 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IRepository<User>,UserRepository>();
+builder.Services.AddScoped<IRepository<Product>,ProductRepository>();
+builder.Services.AddScoped<IRepository<Category>,CategoryRepository>();
+builder.Services.AddScoped<IRepository<Cart>,CartRepository>();
+builder.Services.AddScoped<IRepository<CartItem>,CartItemRepository>();
+builder.Services.AddScoped<IRepository<Review>,ReviewRepository>();
+builder.Services.AddScoped<IRepository<Order>,OrderRepository>();
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString")));
 
